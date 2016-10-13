@@ -152,11 +152,11 @@ public class TestConnection2 {
 		int localport = go3();
 		System.out.println("finished connection..." + localport);
 		
-		String toTableName="test_demo2";
+		String toTableName="test_demo";
 		
 		Connection conn2 = getConnection("jdbc:mysql://localhost:" + localport + "/develop_finance_before" ,"fykctest","fykctest_88");
 		Connection conn3 = getConnection("jdbc:mysql://localhost:" + "3306" + "/"+toTableName, "root", "123456");
-		createTable(conn3);
+		//createTable(conn3);
 		
 		if(conn2==null || conn3==null){
 			
