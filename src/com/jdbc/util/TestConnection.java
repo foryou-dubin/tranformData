@@ -12,16 +12,16 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
 /**
- * Êı¾İ¿âÁ¬½ÓÀà
+ * æ•°æ®åº“è¿æ¥ç±»
  * 
  * @author ITDragon
  *
  */
 public class TestConnection {
 
-	public static int lport = 33102;// ±¾µØ¶Ë¿Ú£¨Ëæ±ãÈ¡£©
-	public static String rhost = "rdst3j60ei1o0m8jjoi5.mysql.rds.aliyuncs.com";// Ô¶³ÌMySQL·şÎñÆ÷
-	public static int rport = 3306;// Ô¶³ÌMySQL·şÎñ¶Ë¿Ú
+	public static int lport = 33102;// æœ¬åœ°ç«¯å£ï¼ˆéšä¾¿å–ï¼‰
+	public static String rhost = "rdst3j60ei1o0m8jjoi5.mysql.rds.aliyuncs.com";// è¿œç¨‹MySQLæœåŠ¡å™¨
+	public static int rport = 3306;// è¿œç¨‹MySQLæœåŠ¡ç«¯å£
 
 	
 	public static int go3() {
@@ -31,7 +31,7 @@ public class TestConnection {
 		String user = "root";
 		String password = "K6jJ6K@b7BaV~^7*";
 		int port = 10068;//
-		// SSH·ÃÎÊ¶Ë¿Ú
+		// SSHè®¿é—®ç«¯å£
 		try {
 
 			JSch jsch = new JSch();
@@ -39,7 +39,7 @@ public class TestConnection {
 			session.setPassword(password);
 			session.setConfig("StrictHostKeyChecking", "no");
 			session.connect();
-			System.out.println(session.getServerVersion());// ÕâÀï´òÓ¡SSH·şÎñÆ÷°æ±¾ĞÅÏ¢ String
+			System.out.println(session.getServerVersion());// è¿™é‡Œæ‰“å°SSHæœåŠ¡å™¨ç‰ˆæœ¬ä¿¡æ¯ String
 			String boundaddress = "0.0.0.0";
 			return session.setPortForwardingL(
 					// boundaddress,
@@ -63,7 +63,7 @@ public class TestConnection {
 		System.out.println("finished connection..." + localport);
 		
 		try {
-			// 1¡¢¼ÓÔØÇı¶¯
+			// 1ã€åŠ è½½é©±åŠ¨
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -71,7 +71,7 @@ public class TestConnection {
 		}
 
 		
-		// 2¡¢´´½¨Á¬½Ó
+		// 2ã€åˆ›å»ºè¿æ¥
 		// Connection conn = null;
 		// Connection conn2 = null;
 		ResultSet rs = null;
@@ -97,7 +97,7 @@ public class TestConnection {
 			
 
 		} catch (SQLException e) {			
-			System.out.println("sqlÖ´ĞĞÒì³£");
+			System.out.println("sqlæ‰§è¡Œå¼‚å¸¸");
 			e.printStackTrace();
 		}
 

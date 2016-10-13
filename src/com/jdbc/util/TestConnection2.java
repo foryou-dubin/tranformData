@@ -16,16 +16,16 @@ import com.mysql.jdbc.PreparedStatement;
 import com.sun.org.apache.regexp.internal.recompile;
 
 /**
- * Êı¾İ¿âÁ¬½ÓÀà
+ * æ•°æ®åº“è¿æ¥ç±»
  * 
  * @author ITDragon
  *
  */
 public class TestConnection2 {
 
-	public static int lport = 33102;// ±¾µØ¶Ë¿Ú£¨Ëæ±ãÈ¡£©
-	public static String rhost = "rdst3j60ei1o0m8jjoi5.mysql.rds.aliyuncs.com";// Ô¶³ÌMySQL·şÎñÆ÷
-	public static int rport = 3306;// Ô¶³ÌMySQL·şÎñ¶Ë¿Ú
+	public static int lport = 33102;// æœ¬åœ°ç«¯å£ï¼ˆéšä¾¿å–ï¼‰
+	public static String rhost = "rdst3j60ei1o0m8jjoi5.mysql.rds.aliyuncs.com";// è¿œç¨‹MySQLæœåŠ¡å™¨
+	public static int rport = 3306;// è¿œç¨‹MySQLæœåŠ¡ç«¯å£
 
 	
 	public static int go3() {
@@ -35,7 +35,7 @@ public class TestConnection2 {
 		String user = "root";
 		String password = "K6jJ6K@b7BaV~^7*";
 		int port = 10068;//
-		// SSH·ÃÎÊ¶Ë¿Ú
+		// SSHè®¿é—®ç«¯å£
 		try {
 
 			JSch jsch = new JSch();
@@ -43,7 +43,7 @@ public class TestConnection2 {
 			session.setPassword(password);
 			session.setConfig("StrictHostKeyChecking", "no");
 			session.connect();
-			System.out.println(session.getServerVersion());// ÕâÀï´òÓ¡SSH·şÎñÆ÷°æ±¾ĞÅÏ¢
+			System.out.println(session.getServerVersion());// è¿™é‡Œæ‰“å°SSHæœåŠ¡å™¨ç‰ˆæœ¬ä¿¡æ¯
 															// String
 			String boundaddress = "0.0.0.0";
 			return session.setPortForwardingL(
@@ -69,13 +69,13 @@ public class TestConnection2 {
 //		System.out.println("finished connection..." + localport);
 
 		try {
-			// 1¡¢¼ÓÔØÇı¶¯
+			// 1ã€åŠ è½½é©±åŠ¨
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		// 2¡¢´´½¨Á¬½Ó
+		// 2ã€åˆ›å»ºè¿æ¥
 		System.out.println("begin connection mysql");
 		//Connection conn2 = null;
 		//Connection conn3 = null;
@@ -90,7 +90,7 @@ public class TestConnection2 {
 
 		} catch (Exception e) {
 		 
-			System.out.println("Î´Á¬ÉÏÊı¾İ¿â.....  ");
+			System.out.println("æœªè¿ä¸Šæ•°æ®åº“.....  ");
 		}
 		
 		return conn;
@@ -102,7 +102,7 @@ public class TestConnection2 {
 		String  create = "create TABLE if not exists test_demo2(id int NOT NULL PRIMARY KEY auto_increment, order_sn varchar(30) NOT NULL ,"
 				+ " customer_name varchar(30) NOT NULL,  customer_mobile varchar(30) NOT NULL, agent_name varchar(30) NOT NULL,   )";
 		 
-		 //´´½¨Êı¾İ¿â²Ù×÷Àà
+		 //åˆ›å»ºæ•°æ®åº“æ“ä½œç±»
 	    Statement sta=null;
 	    
 		try {
@@ -111,27 +111,27 @@ public class TestConnection2 {
 				try {
 					sta = connection.createStatement();
 				} catch (SQLException e1) {
-					System.out.println("´´½¨±í¸ñ³öÏÖÒì³££¡¡£¡£¡£¡£¡£¡£¡£¡£¡£1");
+					System.out.println("åˆ›å»ºè¡¨æ ¼å‡ºç°å¼‚å¸¸ï¼ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚1");
 					e1.printStackTrace();
 				}
-			    /*´´½¨Ò»¸ö±í¡£*/
+			    /*åˆ›å»ºä¸€ä¸ªè¡¨ã€‚*/
 
 			    try {
 			    	
 					sta.execute(create);
 					
 				} catch (SQLException e) {
-					System.out.println("´´½¨±í¸ñ³öÏÖÒì³££¡¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£2");
+					System.out.println("åˆ›å»ºè¡¨æ ¼å‡ºç°å¼‚å¸¸ï¼ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚2");
 					e.printStackTrace();				    
 				}
 			    
 			    
-			    System.out.println("´´½¨±í¸ñÍê±Ï£¡");
+			    System.out.println("åˆ›å»ºè¡¨æ ¼å®Œæ¯•ï¼");
 			    
 			    
 			}else{
 				
-			    System.out.println("Çë´ò¿ªÊı¾İ¿âÁ¬½Ó£¡");
+			    System.out.println("è¯·æ‰“å¼€æ•°æ®åº“è¿æ¥ï¼");
 			}
 			
 			
@@ -146,8 +146,6 @@ public class TestConnection2 {
 	
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		
-		
-
 		 
 		int localport = go3();
 		System.out.println("finished connection..." + localport);
@@ -155,16 +153,23 @@ public class TestConnection2 {
 		String toTableName="test_demo";
 		
 		Connection conn2 = getConnection("jdbc:mysql://localhost:" + localport + "/develop_finance_before" ,"fykctest","fykctest_88");
-		Connection conn3 = getConnection("jdbc:mysql://localhost:" + "3306" + "/"+toTableName, "root", "123456");
+		Connection conn3 = getConnection("jdbc:mysql://localhost:" + "3306/" +"test_demo", "root", "123456");
 		//createTable(conn3);
 		
-		if(conn2==null || conn3==null){
+		if(conn2==null){
 			
-			System.out.println("Á¬½ÓÊı¾İ¿â³öÏÖÒì³£..............");
+			System.out.println("è¿æ¥æ•°æ®åº“2 å‡ºç°å¼‚å¸¸..............");
 			return;
 		}
 		 
+		if( conn3==null){
+			
+			System.out.println("è¿æ¥æ•°æ®åº“3 å‡ºç°å¼‚å¸¸..............");
+			return;
+		}
 		
+		
+	
 		
 		// ResultSet rs = null;
 		// Statement st = null;
@@ -177,7 +182,7 @@ public class TestConnection2 {
 		// System.out.println(rs.getString(1));
 		//
 		// } catch (SQLException e) {
-		// System.out.println("sqlÖ´ĞĞÒì³£");
+		// System.out.println("sqlæ‰§è¡Œå¼‚å¸¸");
 		// e.printStackTrace();
 		// }
 		
@@ -238,7 +243,7 @@ public class TestConnection2 {
 			}
 
 		} catch (SQLException e) {
-			System.out.println("sqlÖ´ĞĞÒì³£");
+			System.out.println("sqlæ‰§è¡Œå¼‚å¸¸");
 			e.printStackTrace();
 
 		} finally {
