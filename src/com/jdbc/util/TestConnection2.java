@@ -72,7 +72,6 @@ public class TestConnection2 {
 			// 1¡¢¼ÓÔØÇý¶¯
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -83,7 +82,8 @@ public class TestConnection2 {
 		Connection conn = null;
 		try {
 
-			System.out.println("connection success");
+			//System.out.println("connection success");
+			
 			//conn2 = DriverManager.getConnection("jdbc:mysql://localhost:" + localport + "/develop_finance_before", "fykctest", "fykctest_88");
 			//conn3 = DriverManager.getConnection("jdbc:mysql://localhost:" + "3306" + "/testdemo", "root", "123456");
 			conn = DriverManager.getConnection(url, user, password);
@@ -156,6 +156,7 @@ public class TestConnection2 {
 		
 		Connection conn2 = getConnection("jdbc:mysql://localhost:" + localport + "/develop_finance_before" ,"fykctest","fykctest_88");
 		Connection conn3 = getConnection("jdbc:mysql://localhost:" + "3306" + "/"+toTableName, "root", "123456");
+		createTable(conn3);
 		
 		if(conn2==null || conn3==null){
 			
@@ -163,7 +164,7 @@ public class TestConnection2 {
 			return;
 		}
 		 
-		createTable(conn3);
+		
 		
 		// ResultSet rs = null;
 		// Statement st = null;
